@@ -3,7 +3,7 @@ import h5py
 
 
 def load_dataset():
-    dataset = h5py.File('./datasets/train_personvnonperson.hdf5', "r")
+    dataset = h5py.File('../static/dataset/train_personvnonperson.hdf5', "r")
     # your train set features
     train_set_x_orig = np.array(dataset["train_set_x"][:])
     # your train set labels
