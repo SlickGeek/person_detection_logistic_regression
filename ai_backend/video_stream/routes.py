@@ -1,7 +1,5 @@
 from flask import Blueprint, Response
-from camera import Camera
 from ai_backend.video_stream.video_camera import VideoCamera
-from flask_gzip import Gzip
 
 video_stream = Blueprint('video_stream', __name__)
 
