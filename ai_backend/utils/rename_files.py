@@ -7,7 +7,7 @@ def main():
     path = '/Users/davidbanda/Desktop/no-persons/'
 
     for count, filename in enumerate(os.listdir(path)):
-        dst = "no-persons" + str(count) + ".jpg"
+        dst = "obj" + str(count) + ".jpg"
         src = path + filename
         dst = path + dst
 
