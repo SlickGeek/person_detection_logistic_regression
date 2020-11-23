@@ -1,10 +1,12 @@
 from ai_backend.neural_network.initialize_with_zeros import initialize_with_zeros
 from ai_backend.neural_network.optimize import optimize
+from ai_backend.neural_network.predict import predict
+import numpy as np
 
 
 # GRADED FUNCTION: model
 
-def model(X_train, Y_train, X_test, Y_test, num_iterations=2000, learning_rate=0.5, print_cost=False):
+def model(X_train, Y_train, X_test, Y_test, num_iterations=1500, learning_rate=0.005, print_cost=False):
     """
     Builds the logistic regression model by calling the function you've implemented previously
     Arguments:
@@ -28,16 +30,16 @@ def model(X_train, Y_train, X_test, Y_test, num_iterations=2000, learning_rate=0
     w = parameters["w"]
     b = parameters["b"]
 
-    return w, b
-
     # ------- Code for training/test examples 'logistic_regression_test.py -----------
     # Predict test/train set examples (≈ 2 lines of code)
-    # Y_prediction_test = predict(w, b, X_test)
-    # Y_prediction_train = predict(w, b, X_train)
+    Y_prediction_test = predict(w, b, X_test)
+    Y_prediction_train = predict(w, b, X_train)
 
     # Print train/test Errors
-    # print("train accuracy: {} %".format(100 - np.mean(np.abs(Y_prediction_train - Y_train)) * 100))
-    # print("test accuracy: {} %".format(100 - np.mean(np.abs(Y_prediction_test - Y_test)) * 100))
+    print("train accuracy: {} %".format(100 - np.mean(np.abs(Y_prediction_train - Y_train)) * 100))
+    print("test accuracy: {} %".format(100 - np.mean(np.abs(Y_prediction_test - Y_test)) * 100))
+
+    return w, b
     #
     # d = {"costs": costs,
     #      "Y_prediction_test": Y_prediction_test,
