@@ -8,8 +8,6 @@ def load_dataset():
     train_set_x_orig = np.array(dataset["train_set_x"][:])
     # your train set labels
     train_set_y_orig = np.array(dataset["train_set_y"][:])
-    print(train_set_x_orig[1])
-    print(train_set_y_orig[1])
 
     # test_dataset = h5py.File('./datasets/train_personvnonperson.hdf5', "r")
     # your test set features
@@ -25,7 +23,3 @@ def load_dataset():
     return (train_set_x_orig, train_set_y_orig,
             test_set_x_orig, test_set_y_orig,
             classes)
-
-
-# train_set_x_orig, train_set_y, test_set_x_orig, test_set_y, classes = load_dataset()
-# print(classes)
