@@ -7,6 +7,8 @@ video_stream = Blueprint('video_stream', __name__)
 def gen(camera):
     while True:
         frame = camera.get_frame()
+        frame_person = camera.detect_person()
+        # print(predict_image.predict_image(frame_person))
         yield (b'--frame\r\n'
                b'Content-Type: image/jpeg\r\n\r\n' + frame + b'\r\n\r\n')
 
