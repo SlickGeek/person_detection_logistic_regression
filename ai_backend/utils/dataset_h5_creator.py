@@ -13,7 +13,9 @@ hdf5_path = '../static/dataset/train_personvnonperson.hdf5'  # path to hdf5 file
 person_nonperson_path = '../static/images/persons_nonpersons/*.jpg'
 
 addrs = glob.glob(person_nonperson_path)  # get path to each image
-labels = [1 if 'pic' in addr[27:] else 0 for addr in addrs]  # label each image
+start_idx_filename = 35
+labels = [1 if 'person' in addr[start_idx_filename:] else 0 for addr in addrs]  # label each image
+print(f'total img: {len(labels)}')
 
 if shuffle_data:
     c = list(zip(addrs, labels))  # bind each image with his label
@@ -25,11 +27,11 @@ if shuffle_data:
     (addrs, labels) = zip(*c)
 
 # Divide the data into 80% for train and 20% for test
-train_addrs = addrs[0:int(0.8 * len(addrs))]
-train_labels = labels[0:int(0.8 * len(labels))]
+train_addrs = addrs[0:int(0.95*len(addrs))]
+train_labels = labels[0:int(0.95*len(labels))]
 
-test_addrs = addrs[int(0.8 * len(addrs)):]
-test_labels = labels[int(0.8 * len(labels)):]
+test_addrs = addrs[int(0.95*len(addrs)):]
+test_labels = labels[int(0.95*len(labels)):]
 
 # ------------------- second part: create the h5py object -------------------
 train_shape = (len(train_addrs), 64, 64, 3)
