@@ -4,8 +4,8 @@ import numpy as np
 
 class VideoCamera:
     def __init__(self):
-        # self.video = cv2.VideoCapture('http://50.197.223.170:80/mjpg/video.mjpg')
-        self.video = cv2.VideoCapture(0)
+        self.video = cv2.VideoCapture('http://184.14.219.6:1024/img/video.mjpeg')
+        # self.video = cv2.VideoCapture(0)
 
     def __del__(self):
         self.video.release()

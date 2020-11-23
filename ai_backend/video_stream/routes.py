@@ -1,9 +1,9 @@
 from flask import Blueprint, Response
 from ai_backend.video_stream.video_camera import VideoCamera
-from ai_backend.neural_network.predict_image import PredictImage
+from ai_backend import predict
 
 video_stream = Blueprint('video_stream', __name__)
-predict = PredictImage()
+
 
 def gen(camera):
     while True:
