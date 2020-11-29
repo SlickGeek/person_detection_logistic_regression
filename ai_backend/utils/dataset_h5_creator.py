@@ -27,11 +27,11 @@ if shuffle_data:
     (addrs, labels) = zip(*c)
 
 # Divide the data into 80% for train and 20% for test
-train_addrs = addrs[0:int(0.95*len(addrs))]
-train_labels = labels[0:int(0.95*len(labels))]
+train_addrs = addrs[0:int(0.90*len(addrs))]
+train_labels = labels[0:int(0.90*len(labels))]
 
-test_addrs = addrs[int(0.95*len(addrs)):]
-test_labels = labels[int(0.95*len(labels)):]
+test_addrs = addrs[int(0.90*len(addrs)):]
+test_labels = labels[int(0.90*len(labels)):]
 
 # ------------------- second part: create the h5py object -------------------
 train_shape = (len(train_addrs), 64, 64, 3)

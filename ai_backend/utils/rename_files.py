@@ -4,10 +4,11 @@ import os
 # Function to rename multiple files
 def main():
 
-    path = '/Users/davidbanda/Desktop/no-persons/'
+    path = '/Users/davidbanda/Desktop/Object/'
+    countStart = 808
 
     for count, filename in enumerate(os.listdir(path)):
-        dst = "obj" + str(count) + ".jpg"
+        dst = "obj" + str(count+countStart) + ".jpg"
         src = path + filename
         dst = path + dst
 
