@@ -9,8 +9,10 @@ __pycache__/
 .idea
 .DS_Store
 
+images/
+video/
+
 # Distribution / packaging
-/images
 .Python
 build/
 develop-eggs/
