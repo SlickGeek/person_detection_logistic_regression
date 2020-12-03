@@ -34,8 +34,8 @@ test_addrs = addrs[int(0.90*len(addrs)):]
 test_labels = labels[int(0.90*len(labels)):]
 
 # ------------------- second part: create the h5py object -------------------
-train_shape = (len(train_addrs), 64, 64, 3)
-test_shape = (len(test_addrs), 64, 64, 3)
+train_shape = (len(train_addrs), 128, 128, 3)
+test_shape = (len(test_addrs), 128, 128, 3)
 
 # open a hdf5 file
 f = h5py.File(hdf5_path, mode='w')
@@ -66,7 +66,7 @@ for i in range(len(train_addrs)):
     addr = train_addrs[i]
     img = cv2.imread(addr)
     # resize to (64,64)
-    img = cv2.resize(img, (64, 64), interpolation=cv2.INTER_CUBIC)
+    img = cv2.resize(img, (128, 128), interpolation=cv2.INTER_CUBIC)
     # cv2 load images as BGR, convert it to RGB
     img = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
     f["train_set_x"][i, ...] = img[None]
@@ -79,7 +79,7 @@ for i in range(len(test_addrs)):
 
     addr = test_addrs[i]
     img = cv2.imread(addr)
-    img = cv2.resize(img, (64, 64), interpolation=cv2.INTER_CUBIC)
+    img = cv2.resize(img, (128, 128), interpolation=cv2.INTER_CUBIC)
     img = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
     f["test_set_x"][i, ...] = img[None]
 
