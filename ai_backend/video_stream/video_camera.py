@@ -4,8 +4,7 @@ import numpy as np
 
 class VideoCamera:
     def __init__(self, path):
-        self.video = cv2.VideoCapture('/Users/davidbanda/Coding/person_detection_logistic_regression/ai_backend'
-                                      '/static/video/person.mp4')
+        self.video = cv2.VideoCapture('/home/henrry/Documents/TEC2/IA/FinalProject/person_detection_logistic_regression/ai_backend/static/video/'+path)
         # self.video = cv2.VideoCapture(0)
 
     def __del__(self):
